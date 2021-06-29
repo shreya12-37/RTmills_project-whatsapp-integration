@@ -44,6 +44,7 @@ frappe.listview_settings['Dispatch Details'] = {
                 reader.onloadend = function() {
                     var base64data = reader.result;
                     console.log("ye base64data mila", base64data);
+                    console.log("file name",filename,"doctype",doctype,"docname",docname);
                     frappe.call({
                         method: "uploadfile",
                         type: 'POST',
@@ -52,13 +53,14 @@ frappe.listview_settings['Dispatch Details'] = {
                             docname:docname,
                             filename:filename,
                             filedata:base64data,
-                            from_form: 1
+                            is_public:1
                         },
-                        public: true,
                         async: false,
                         callback: function(r) {
-                            console.log("file name",filename,"doctype",doctype,"docname",docname);
-                            console.log("KYC document uploaded Succesfully",r);
+                            // console.log("helppppppoppssojihusfad")
+                            // frappe.msgprint(r)
+                            // console.log("file name",filename,"doctype",doctype,"docname",docname);
+                            console.log(r);
                             // frappe.call
                         },
                         error: function(data) {
