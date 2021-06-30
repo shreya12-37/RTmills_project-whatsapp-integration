@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Dispatch Details</title>
-    </head>
-    <body>
-        <div class="col-xs-12" style="border: 2px solid red;">
+ <div class="col-xs-12" style="border: 2px solid red;">
             <div class="row">
             <div class="col-xs-12" style="border-bottom: 2px solid red">
                 <h1 style="text-align: center;color: brown;">GADIA TEXTILES CORPORATION</h1>
@@ -15,31 +9,42 @@
             <div class="col-xs-6" style="background:rgb(255, 249, 192);border-bottom: 2px solid red; border-right: 2px solid red">Reverse Charge: NO</div>
             <div class="col-xs-6" style="background:rgb(255, 249, 192);border-bottom: 2px solid red">Transportation</div>
             <div class="col-xs-6" style="background:rgb(255, 249, 192);border-bottom: 2px solid red; border-right: 2px solid red">
-                <div class="col-xs-3">Invoice No:</div>{{ doc.name }}
-                <div class="col-xs-3">Date</div>
+                <div class="row">
+                    <div class="col-xs-6">Invoice No:</div>
+                    <div class="col-xs-6">Date</div>
+                </div>
             </div>
             <div class="col-xs-6" style="background:rgb(255, 249, 192);border-bottom: 2px solid red">
-                <div class="col-xs-3">L/R No.</div>
-                <div class="col-xs-3">Place</div>
+                <div class="row">
+                    <div class="col-xs-6">L/R No.</div>
+                    <div class="col-xs-6">Place</div>
+                </div>
             </div> 
             <div class="col-xs-6" style="background:rgb(255, 249, 192);border-bottom: 2px solid red; border-right: 2px solid red">
-                <div class="col-xs-3">State- Madhya Pradesh</div>
-                <div class="col-xs-3">State code- 23</div>
+                <div class="row">
+                    <div class="col-xs-6">State-MP</div>
+                    <div class="col-xs-6">State code- 23</div>
+                </div>
             </div>
             <div class="col-xs-6" style="background:rgb(255, 249, 192);border-bottom: 2px solid red">
-                <div class="col-xs-3">State</div>
-                <div class="col-xs-3">State code</div>
+                <div class="row">
+                    <div class="col-xs-6">State</div>
+                    <div class="col-xs-6">State code</div>
+                </div>
             </div>
             <div class="col-xs-6" style="background:rgb(255, 249, 192);border-bottom: 2px solid red; border-right: 2px solid red">
-                <div class="col-xs-3">Indent No.</div>
-                <div class="col-xs-3">Date</div>
+                <div>
+                    <div class="col-xs-6">Indent No.</div>
+                    <div class="col-xs-6">Date</div>
+                </div>
             </div>
             <div class="col-xs-6" style="background:rgb(255, 249, 192);border-bottom: 2px solid red">Agent
             </div>
             <div class="col-xs-6" style="color:red;background:rgb(255, 249, 192);border-bottom: 2px solid red; border-right: 2px solid red">Details of Receiver/Billed to:
             </div>
             <div class="col-xs-6" style="color:red;background:rgb(255, 249, 192);border-bottom: 2px solid red;">Details of Consignee/Shipped to:</div>
-            <div class="col-xs-6" style="border-right: 2px solid red;border-bottom: 2px solid red">
+            <div class="row">
+                <div class="col-xs-6" style="border-right: 2px solid red;border-bottom: 2px solid red">
                 <p>Name</p>
                 <p>Address</p>
                 <br>
@@ -57,11 +62,23 @@
                 <p>State</p>
                 <p>State Code</p>
             </div>
+            </div>
             <div class="col-xs-12" style="background:rgb(255, 249, 192);border-bottom: 2px solid red">
-                <text>Description of goods<br>HSN Code <br>Bale No<br>Ps/Than<br>UQM<br>Rate<br>Total</text>
+                <table style="color:red;background:rgb(255, 249, 192);font-size:12px;">
+                    <tr style="color:red;background:rgb(255, 249, 192);font-size:12px;">
+                        <th style="width:500px;">Description of Goods</th>
+                        <th style="width:400px;">HSN Code</th>
+                        <th style="width:400px;">Bale No</th>
+                        <th style="width:400px;">Ps/Than</th>
+                        <th style="width:400px;">UQM</th>
+                        <th style="width:400px;">Rate</th>
+                        <th style="width:400px;">Total</th>
+                    </tr>
+                </table>
             </div>
             <div class="col-xs-12" style="border-bottom: 2px solid red">
-                <div class="col-xs-6">
+                <div class="row">
+                    <div class="col-xs-6">
                     <br>
                     <br>
                     <br>
@@ -81,6 +98,7 @@
                     <p>IFSC :<b>UBIN0532614</b></p>
                     <p><b>UPI : gadia@uboi</b></p>
                 </div>
+                </div>
             </div>
             <div class="col-xs-12" style="border-bottom: 2px solid red">
                 <div class="col-xs-6">
@@ -91,7 +109,8 @@
                 </div>
             </div>
             <div class="col-xs-12">
-                <div class="col-xs-10">
+                <div class="row">
+                    <div class="col-xs-10">
                     <div class="col-xs-2" style="color:darkblue">
                         Insurance(+)
                     </div>
@@ -108,7 +127,7 @@
                         Description.
                     </div>
                 </div>
-                <div class="col-xs-10">
+                    <div class="col-xs-10">
                     <div class="col-xs-2" style="color:darkblue">
                         IGST -
                     </div>
@@ -119,15 +138,14 @@
                         SGST -
                     </div>
                 </div>
-                <div class="col-xs-2">
+                    <div class="col-xs-2">
                     Add/Less:<br>
                     Taxable Amt:<br>
                     Add GST:<br>
                     Round Off:<br>
                     <strong style="color:red">Grand Total</strong>
                 </div>
+                </div>
             </div>
         </div>
         </div>
-    </body>
-</html>
