@@ -18,7 +18,7 @@ payload = json.loads(json.dumps({
 }))
 
 headers = {
-  'Authorization': 'token 46def2802625889:b85e202c1953f61',
+  'Authorization': 'token key:pass',
   'Content-Type': 'application/json'
 }
 
