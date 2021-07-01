@@ -15,7 +15,7 @@ frappe.listview_settings['Dispatch Details'] = {
                 for (var i in docnames) {
                     var name = docnames[i];
                     name = name.replace("/", "%2F");
-                    var url = "http://rtmills.onehash.ai/api/method/frappe.utils.print_format.download_pdf?doctype=Dispatch%20Details&name=" + name + "&format=Standard&no_letterhead=0&letterhead=RT%20MILLS%20Letter%20Head&settings=%7B%7D&_lang=en-US";
+                    var url = "" + name + "";
                     window.open(url);
 
                 }
