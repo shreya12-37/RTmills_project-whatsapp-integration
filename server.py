@@ -1,19 +1,22 @@
 frappe.response["args"]=(frappe.form_dict)
-pdf = frappe.response["args"]["url"]
-user_no = frappe.response["args"]["user_no"]
+pdf = frappe.response["args"]["pdf"]
+# user_no = frappe.response["args"]["user_no"]
 customer_no = frappe.response["args"]["customer_no"]
+frappe.msgprint("customer number")
+frappe.msgprint(customer_no)
+frappe.msgprint("pdf link")
+frappe.msgprint(pdf)
 url = "https://pickyassist.com/app/api/v2/push"
-headers={}
 payload = {
-    "token":"",
+    "token":"fca637e3840511ab53dbf57dab1f4ba1ac63fb92",
     "priority":"0",
-    "application": "1",
-    "globalmessage": "Please find attached dispatch detaisl",
-    "globalmedia": "pdf",
+    "application": "919737001155",
+    "globalmessage": "Please find attached dispatch details",
+    "globalmedia": pdf,
     "data":[
-        {
-            "number":customer_no,
-            "message":""
-        }]
+        {"number":customer_no}
+        ]
 }
-response=frappe.make_get_request(url=url,headers=headers,payload=payload,auth=None)
+frappe.log_error(payload,"payload")
+response=frappe.make_post_request(url=url,data=json.dumps(payload))
+frappe.log_error(response,"error is this")
