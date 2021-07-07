@@ -8,7 +8,7 @@ frappe.msgprint("pdf link")
 frappe.msgprint(pdf)
 url = "https://pickyassist.com/app/api/v2/push"
 payload = {
-    "token":"fca637e3840511ab53dbf57dab1f4ba1ac63fb92",
+    "token":"",
     "priority":"0",
     "application": "919737001155",
     "globalmessage": "Please find attached dispatch details",
