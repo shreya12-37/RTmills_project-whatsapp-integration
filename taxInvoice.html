@@ -5,16 +5,16 @@
                 <strong>Gadia Textile Corporation</strong><br>
                 <text>Jamalpura T.I.T Road,Emagrid</text><br>
                 <text>Rambagh, Bhadani Market, Chowk, Patna, Bihar, 800008</text><br>
-                <text>GSTIN/UIN: </text><br>
+                <text>GSTIN/UIN: 23AGAPG2116M1ZV</text><br>
                 <text>State Name: Madhya Pradesh, Code:23</text><br>
-                <text>E-Mail:</text>
+                <text>E-Mail: rtmills@gadia.in</text>
             </div>
             <div style="border-bottom: 1px solid black;border-right:1px solid black;padding-top:5px">
                 <text>Buyer (Bill to)</text><br>
-                <strong>Bhadani Synthetics</strong><br>
-                <text>Rambagh, Bhadani Market, Chowk, Patna, Bihar, 800008</text><br>
-                <text>Burhanpur</text><br>
-                <text>GSTIN/UIN: </text><br>
+                <strong>{{doc.to_party}}</strong><br>
+                <text>{{doc.to_ad1}},{{doc.to_ad2}}</text><br>
+                <text>{{doc.city}}</text><br>
+                <text>GSTIN/UIN:{{doc.to_gstin}}</text><br>
                 <text>PAN/IT No: </text><br>
                 <text>State Name: </text><br>
                 <text>Contact person: </text><br>
@@ -31,15 +31,15 @@
         <div class="col-xs-6" style="border-bottom: 1px solid black">
             <div class="row">
                 <div class="col-xs-6" style="border-bottom: 1px solid black;border-right:1px solid black">
-                    Invoive No.<br><strong>GTC</strong>
+                    Invoive No.<br><strong>{{doc.doc_no}}</strong>
                 </div>
-                <div class="col-xs-6" style="border-bottom: 1px solid black">Dated<br><strong></strong>
+                <div class="col-xs-6" style="border-bottom: 1px solid black">Dated<br><strong>{{doc.doc_date}}</strong>
                 </div>
                 <div class="col-xs-6" style="border-bottom: 1px solid black;border-right:1px solid black">
-                    Delivery Note<br><strong></strong>
+                    Delivery Note<br><strong>{{doc.doc_no}}</strong>
                 </div>
                 <div class="col-xs-6" style="border-bottom: 1px solid black">
-                    Mode/Terms of Payment
+                    Mode of Payment
                     <div><br></div>
                 </div>
                 <div class="col-xs-6" style="border-bottom: 1px solid black;border-right:1px solid black">
@@ -48,13 +48,13 @@
                 </div>
                 <div class="col-xs-6" style="border-bottom: 1px solid black">
                     Other References
-                    <div><br></div>
+                    <div>{{doc.broker}}</div>
                 </div>
                 <div class="col-xs-6" style="border-bottom: 1px solid black;border-right:1px solid black">
-                    Buyer's Order No.<br><strong>421</strong>
+                    Buyer's Order No.<br><strong><br></strong>
                 </div>
                 <div class="col-xs-6" style="border-bottom: 1px solid black">
-                    Date<br><strong>11-May-21</strong>
+                    Date<br><strong>{{doc.doc_date}}</strong>
                 </div>
                 <div class="col-xs-6" style="border-bottom: 1px solid black;border-right:1px solid black">
                     Dispatch Doc No.
@@ -63,17 +63,17 @@
                     </div>
                 </div>
                 <div class="col-xs-6" style="border-bottom: 1px solid black">
-                    Delivery Note Date<br><strong>11-May-21</strong>
+                    Delivery Note Date<br><strong>{{doc.doc_date}}</strong>
                 </div>
                 <div class="col-xs-6" style="border-bottom: 1px solid black; border-right:1px solid black">
-                    Dispatch through
-                    <div><br></div>
+                    Dispatched through
+                    <div>{{doc.tran_name}}</div>
                 </div>
                 <div class="col-xs-6" style="border-bottom: 1px solid black">
-                    Destination<br><strong>Patna City</strong>
+                    Destination<br><strong>{{doc.ship2stat}}</strong>
                 </div>
                 <div class="col-xs-6" style="border-bottom: 1px solid black; border-right:1px solid black">
-                    Bill of lading/LR-RR No.<br>
+                    Bill of lading/LR-RR No.<br><strong>{{ doc.tran_docno }}</strong>
                 </div>
                 <div class="col-xs-6" style="border-bottom: 1px solid black">
                     Motor Vehicle No.
@@ -99,19 +99,23 @@
                     <th style="border-right:1px solid black;border-bottom: 1px solid black;width:10%">Rate</th>
                     <th style="border-right:1px solid black;border-bottom: 1px solid black;width:10%">per</th>
                     <th style="border-right:1px solid black;border-bottom: 1px solid black;width:10%">Disc%</th>
-                    <th style="border-right:1px solid black;border-bottom: 1px solid black;width:10%">Amount</th>
+                    <th style="border-bottom: 1px solid black;width:10%">Amount</th>
                 </tr>
                 {%- for row in doc.products -%}
                 <tr>
-                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 5%">{{ row.description }}</td>
-                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 25%">{{ row.gst_hsn_code }}</td>
-                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%">Head Count</td>
-                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%">{{ row.rate }}</td>
-                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%">{{ row.amount }}</td>
-                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%">{{ row.amount }}</td>
-                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%">{{ row.amount }}</td>
-                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%">{{ row.amount }}</td>
-                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%">{{ row.amount }}</td>
+                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 5%">{{ row.s_no }}</td>
+                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 25%"><strong>{{ row.product }}</strong><br>{{row.description}}<br>Batch: {{row.bale_no}}</td>
+                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%">{{ row.hsn }}</td>
+                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%">{{ row.igst }}</td>
+                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%">{{ row.qty }}</td>
+                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%">
+                      {% if row.tax_rate %}
+                      <p>{{doc.tax_rate}}</p>
+                      {% endif %}
+                  </td>
+                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%">{{ row.unit }}</td>
+                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%"></td>
+                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%">{{ row.ass_val + row.igst }}</td>
                 </tr>
                 {%- endfor -%}
                 <tr>
@@ -123,12 +127,40 @@
                   <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%"></td>
                   <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%"></td>
                   <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%"></td>
-                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%"></td>
+                  <td style="border-right: 1px solid black; border-bottom: 1px solid black; width: 10%">{{ doc.invoice_val }}</td>
                 </tr>
             </table>
         </div>
         <div class="col-xs-12" style="border-bottom:1px solid black">
-            Amount Chargeable (in words)
+            Amount Chargeable (in words)<br>
+            {{ frappe.utils.money_in_words(doc.invoice_val) }}
+        </div>
+        <div class="col-xs-12" style="padding:0">
+            <table>
+                <tr>
+                    <th style="width:60%;border-right:1px solid black;border-bottom:1px solid black">HSN/SAC</th>
+                    <th style="width:10%;border-right:1px solid black;border-bottom:1px solid black">Taxable Value</th>
+                    <th style="width:10%;border-right:1px solid black;border-bottom:1px solid black">Integrated Tax Rate</th>
+                    <th style="width:10%;border-right:1px solid black;border-bottom:1px solid black">Integrated Tax Amount</th>
+                    <th style="width:10%;border-bottom:1px solid black">Total Tax Amount</th>
+                </tr>
+                {%- for row in doc.products -%}
+                <tr style="border-bottom:1px solid black">
+                    <td style="width:60%;border-right:1px solid black">{{row.hsn}}</td>
+                    <td style="width:10%;border-right:1px solid black">{{row.ass_val}}</td>
+                    <td style="width:10%;border-right:1px solid black"></td>
+                    <td style="width:10%;border-right:1px solid black">{{row.igst}}</td>
+                    <td style="width:10%">{{row.igst}}</td>
+                </tr>
+                {%- endfor -%}
+                <tr style="border-bottom:1px solid black">
+                    <td style="width:60%;border-right:1px solid black"><strong>Total</strong></td>
+                    <td style="width:10%;border-right:1px solid black"></td>
+                    <td style="width:10%;border-right:1px solid black"><br></td>
+                    <td style="width:10%;border-right:1px solid black"></td>
+                    <td style="width:10%"></td>
+                </tr>
+            </table>
         </div>
         <div class="col-xs-12" style="padding:0">
             <div class="col-xs-6" style="padding:0">
@@ -140,10 +172,10 @@
             </div>
             <div class="col-xs-6" style="padding:0">
                 <text>Company's Bank Details</text><br>
-                <text>A/c Holder's Name:</text><br>
-                <text>Bank Name:</text><br>
-                <text>Branch & IFS Code:</text><br>
-                <text>SWIFT CODE.  :</text>
+                <text>A/c Holder's Name: Gadia Textiles Corporation</text><br>
+                <text>Bank Name: ICICI Bank Limited</text><br>
+                <text>Branch & IFS Code: Burhanpur & ICIC0006566</text><br>
+                <text>SWIFT CODE.  :ICICINBBXXX</text>
             </div>
         </div>
         <div class="col-xs-12" style="padding:0">
@@ -152,11 +184,15 @@
                 We declare that this invoice shows the actual price of the goods described and that all particulars are true and correct. 
             </div>
             <div class="col-xs-6" style="border-top:1px solid black;border-left:1px solid black;text-align:right;padding:0">
-                <text><strong>for</strong></text><br>
+                <text><strong>for Gadia Textiles Corporation</strong></text><br>
                 <br>
                 <text>Authorized Signatory</text>
             </div>
         </div>
     </div>
 
+</div>
+<div style="text-align:center">
+    SUBJECT TO BURHANPUR JURISDICTION<br>
+    This is a Computer Generated Invoice
 </div>
