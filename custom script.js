@@ -1,14 +1,19 @@
-frappe.ui.form.on('Dispatch Details', {
-     before_save:function(frm){
-	        let product_list = frm.doc.products;
-	        let total_taxable_value=0;
-	        let total_tax_applied=0;
-	        
+frappe.ui.form.on('Product Dispatch', {
+    setup:function(frm){
+	        let product_list = frm.doc.product_details;
+	        let final_gst=0.0;
+	        let amt=0;
+	        console.log("gst", product_list)
 	        product_list.forEach(function(product, index){
-	            total_taxable_value = total_taxable_value + parseFloat(product.ass_val);
-	            total_tax_applied = total_tax_applied + parseFloat(product.igst);
+	           // console.log("test",product_list[0].igst)
+	            final_gst = final_gst + parseFloat(product_list[0].igst) + parseFloat(product_list[0].sgst) + parseFloat(product_list[0].cgst);
+	            amt = amt + parseFloat(product_list[0].amount)
+	           // console.log("hy", final_gst)
 	        });
-	        frm.set_value("total_tax",total_tax_applied);
-	        frm.set_value("total_value",total_taxable_value);
+	       // console.log("test", final_gst);
+	       //console.log("test",amt)
+	       frm.set_value("total_gst",final_gst);
+	       frm.set_value("amount",taxable_amount)
+	       // frm.set_value("amount",total_taxable_value);
 	    }
 })
